@@ -5,12 +5,12 @@ setwd(tPath)
 fnm <- "household_power_consumption.txt"
 D <- read.table(fnm, header = TRUE, sep = ";", na.strings = "?")
 # filter the data #
-DD <- D[D$Date == "2/1/2007" | D$Date == "2/2/2007", ]
+DD <- D[D$Date == "1/2/2007" | D$Date == "2/2/2007", ]
 # fix Date and Time
-DD$Time <- strptime(paste(DD$Date, DD$Time, sep = " "), format = "%m/%d/%Y %H:%M:%S") 
+DD$Time <- strptime(paste(DD$Date, DD$Time, sep = " "), format = "%d/%m/%Y %H:%M:%S") 
 DD$Date <- as.Date(DD$Date, format = "%m/%d/%Y")
 str(DD)
-# Plot
+# Plot Graph
 png("Plot3.png", width = 480, height = 480)
 plot(DD$Time, DD$Sub_metering_1 , type = "l", col = "black", ylim = c(0, 40), xlab = "", ylab = "", yaxt = "n")
 par(new = TRUE)

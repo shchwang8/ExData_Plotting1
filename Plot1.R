@@ -5,11 +5,10 @@ setwd(tPath)
 fnm <- "household_power_consumption.txt"
 D <- read.table(fnm, header = TRUE, sep = ";", na.strings = "?")
 # filter the data #
-DD <- D[D$Date == "2/1/2007" | D$Date == "2/2/2007", ]
+DD <- D[D$Date == "1/2/2007" | D$Date == "2/2/2007", ]
 # Draw Graph and output to a png file #
 png("Plot1.png", width = 480, height = 480)
-hist(DD$Global_active_power, col = "red", breaks = 10, 
-     main = "Global Active Power", xlab = "Global Active Power (killwatts)"
-     , ylim = c(0, 1200), xlim = c(0,6), xaxt = "n") #
-axis(1, xaxp = c(0, 6, 3))
+hist(DD$Global_active_power, col = "red", 
+     main = "Global Active Power", xlab = "Global Active Power (killwatts)")
 dev.off()
+
